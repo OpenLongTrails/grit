@@ -303,7 +303,7 @@ async function deleteGpsHistoryFile() {
 function handleLogComments() {
   console.log("=== At handleLogComments().");
 
-  globals.comments.map(comment => console.log("=== " + comment));
+  globals.comments.map(comment => console.log("=== " + JSON.stringify(comment)));
 }
 
 async function handleLogFeedback() {

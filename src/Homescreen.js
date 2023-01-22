@@ -516,12 +516,10 @@ function HomeScreen({ navigation, route }) {
         />
         */}
 
-        {/*
         <IconButton
           title="dev"
           onPress={() => handleDevMenu(navigation)}
         />
-        */}
       </View>
       {searchInputIsVisible &&
         <View style={{ flexDirection: "row", marginHorizontal: 15, justifyContent: 'space-between' }}>

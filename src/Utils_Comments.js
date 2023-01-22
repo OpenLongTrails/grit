@@ -57,7 +57,7 @@ export async function fetchComments() {
     try {
       const commentData = await API.graphql(graphqlOperation(listComments));
 
-      console.log("=== fetchComments(): calling JSON.parse(commentData.data.listComments.items)");
+      // console.log("=== fetchComments(): calling JSON.parse(commentData.data.listComments.items)");
       // console.log("=== isArray: ", Array.isArray(commentData.data.listComments.items));
 
       globals.comments = commentData.data.listComments.items;
@@ -65,12 +65,14 @@ export async function fetchComments() {
       console.log("=== fetchComments(): fetched comments: " + JSON.stringify(globals.comments));
     } catch (err) {
       globals.log.error("API.graphql returned error on listComments: ", err);
+      console.log("!!! API.graphql() returned error on listComments: ", err);
     }
   }
 }
 
 export async function writeCommentsToDisk() {
   console.log("=== writeCommentsToDisk(): writing comments to file...");
+  console.log("=== writeCommentsToDisk(): globals.comments: ", globals.comments);
 
   await writeFile("comments.json", globals.comments);
 }
